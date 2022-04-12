@@ -1,5 +1,6 @@
 from functools import reduce
 import subprocess,os,sys
+import time
 # if os.path.exists(sys.argv[0]+'/ping.txt'): 
 #     subprocess.Popen(['del',sys.argv[0]+'/ping.txt'])
 # p = subprocess.Popen(['ping','-n','10','192.168.73.1'],stdout=subprocess.PIPE)
@@ -15,7 +16,7 @@ for line in file:
         continue
     tot+=1
     line = ((line.split(':')[1][:-1]).split(' ')[1:][1])
-    if line[2] == '<':
+    if '<' in line:
         continue
     line = line.split('=')[1][:-2]
     buff.append(int(line))
